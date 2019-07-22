@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.yi.project.dao.ProjectDao">
+	
+	<select id="selectListByAll" resultType="Project">
+		select * from project
+	</select>
+	<insert id="insert" parameterType="project">
+		INSERT INTO board.project
+		(p_name, p_content, p_startdate, p_enddate, p_state)
+		VALUES(${p_name}, ${p_content}, ${p_startdate}, ${p_enddate}, ${p_state});
+	</insert>
+</mapper>
