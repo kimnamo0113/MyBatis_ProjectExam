@@ -22,7 +22,10 @@ table {
 td, th {
 	border: 1px solid black;
 }
-
+a{
+	color:black;
+	text-decoration: none;
+}
 #proadd {
 	float: right;
 }
@@ -45,13 +48,16 @@ td, th {
 				<th>상태</th>
 			</tr>
 			<c:forEach var="project" items="${list }">
+			
 				<tr>
-					<td>${project.p_name }</td>
+				
+					<td><a href="read.do?no=${project.p_no }">${project.p_name }</a></td>
 					<td><fmt:formatDate value="${project.p_startdate }" pattern="yyyy-MM-dd"/></td>
 					<td><fmt:formatDate value="${project.p_enddate }" pattern="yyyy-MM-dd"/></td>
 					<td>${project.p_state }</td>
 				
 				</tr>
+				
 			</c:forEach>
 		</table>
 	</div>

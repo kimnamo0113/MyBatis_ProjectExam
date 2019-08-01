@@ -8,8 +8,26 @@
 		select * from project
 	</select>
 	<insert id="insert" parameterType="project">
-		INSERT INTO board.project
+		INSERT INTO project
 		(p_name, p_content, p_startdate, p_enddate, p_state)
-		VALUES(${p_name}, ${p_content}, ${p_startdate}, ${p_enddate}, ${p_state});
+		VALUES(#{p_name}, #{p_content}, #{p_startdate}, #{p_enddate}, #{p_state})
 	</insert>
+	
+	<select id="selectByNo" resultType="project">
+		select * from project
+		<where>
+			p_no=#{no}
+		</where>
+	</select>
+	
+	<update id="update">
+		UPDATE board.project
+		SET p_name=#{p_name}, p_content=#{p_content}, p_startdate=#{p_startdate}, p_enddate=#{p_enddate}, p_state=#{p_state}
+		WHERE p_no=#{p_no};
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM board.project
+		WHERE p_no=#{no};
+	</delete>
 </mapper>

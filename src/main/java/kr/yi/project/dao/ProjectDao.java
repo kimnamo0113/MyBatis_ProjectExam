@@ -9,5 +9,11 @@ public interface ProjectDao {
 	List<Project> selectListByAll();
 
 	int insert(Project project);
+
+	Project selectByNo(int no);
+
+	int update(Project project);
+
+	int delete(int no);
 	
 }
